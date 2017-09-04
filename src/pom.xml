@@ -89,7 +89,7 @@
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>
-      <version>1.2.2</version>
+      <version>1.2.3</version>
     </dependency>
     <!-- 导入java ee jar 包 -->
     <dependency>
@@ -97,11 +97,11 @@
       <artifactId>javaee-api</artifactId>
       <version>7.0</version>
     </dependency>
-    <!-- 导入Mysql数据库链接jar包 -->
+    <!-- 导入sqlserver数据库链接jar包 -->
     <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.30</version>
+      <groupId>com.microsoft.sqlserver</groupId>
+      <artifactId>mssql-jdbc</artifactId>
+      <version>6.1.0.jre8</version>
     </dependency>
     <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
     <dependency>
