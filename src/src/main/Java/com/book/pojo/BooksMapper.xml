@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.book.mapper.BooksMapper" >
+  <resultMap id="BaseResultMap" type="com.book.pojo.Books" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="Title" property="title" jdbcType="NVARCHAR" />
+    <result column="Author" property="author" jdbcType="NVARCHAR" />
+    <result column="PublisherId" property="publisherid" jdbcType="INTEGER" />
+    <result column="PublishDate" property="publishdate" jdbcType="TIMESTAMP" />
+    <result column="ISBN" property="isbn" jdbcType="NVARCHAR" />
+    <result column="UnitPrice" property="unitprice" jdbcType="DECIMAL" />
+    <result column="ContentDescription" property="contentdescription" jdbcType="NVARCHAR" />
+    <result column="TOC" property="toc" jdbcType="NVARCHAR" />
+    <result column="CategoryId" property="categoryid" jdbcType="INTEGER" />
+    <result column="Clicks" property="clicks" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, Title, Author, PublisherId, PublishDate, ISBN, UnitPrice, ContentDescription, 
+    TOC, CategoryId, Clicks
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from Books
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from Books
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.book.pojo.Books" >
+    insert into Books (Id, Title, Author, 
+      PublisherId, PublishDate, ISBN, 
+      UnitPrice, ContentDescription, TOC, 
+      CategoryId, Clicks)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=NVARCHAR}, #{author,jdbcType=NVARCHAR}, 
+      #{publisherid,jdbcType=INTEGER}, #{publishdate,jdbcType=TIMESTAMP}, #{isbn,jdbcType=NVARCHAR}, 
+      #{unitprice,jdbcType=DECIMAL}, #{contentdescription,jdbcType=NVARCHAR}, #{toc,jdbcType=NVARCHAR}, 
+      #{categoryid,jdbcType=INTEGER}, #{clicks,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.book.pojo.Books" >
+    insert into Books
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="title != null" >
+        Title,
+      </if>
+      <if test="author != null" >
+        Author,
+      </if>
+      <if test="publisherid != null" >
+        PublisherId,
+      </if>
+      <if test="publishdate != null" >
+        PublishDate,
+      </if>
+      <if test="isbn != null" >
+        ISBN,
+      </if>
+      <if test="unitprice != null" >
+        UnitPrice,
+      </if>
+      <if test="contentdescription != null" >
+        ContentDescription,
+      </if>
+      <if test="toc != null" >
+        TOC,
+      </if>
+      <if test="categoryid != null" >
+        CategoryId,
+      </if>
+      <if test="clicks != null" >
+        Clicks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=NVARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=NVARCHAR},
+      </if>
+      <if test="publisherid != null" >
+        #{publisherid,jdbcType=INTEGER},
+      </if>
+      <if test="publishdate != null" >
+        #{publishdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isbn != null" >
+        #{isbn,jdbcType=NVARCHAR},
+      </if>
+      <if test="unitprice != null" >
+        #{unitprice,jdbcType=DECIMAL},
+      </if>
+      <if test="contentdescription != null" >
+        #{contentdescription,jdbcType=NVARCHAR},
+      </if>
+      <if test="toc != null" >
+        #{toc,jdbcType=NVARCHAR},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="clicks != null" >
+        #{clicks,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.book.pojo.Books" >
+    update Books
+    <set >
+      <if test="title != null" >
+        Title = #{title,jdbcType=NVARCHAR},
+      </if>
+      <if test="author != null" >
+        Author = #{author,jdbcType=NVARCHAR},
+      </if>
+      <if test="publisherid != null" >
+        PublisherId = #{publisherid,jdbcType=INTEGER},
+      </if>
+      <if test="publishdate != null" >
+        PublishDate = #{publishdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isbn != null" >
+        ISBN = #{isbn,jdbcType=NVARCHAR},
+      </if>
+      <if test="unitprice != null" >
+        UnitPrice = #{unitprice,jdbcType=DECIMAL},
+      </if>
+      <if test="contentdescription != null" >
+        ContentDescription = #{contentdescription,jdbcType=NVARCHAR},
+      </if>
+      <if test="toc != null" >
+        TOC = #{toc,jdbcType=NVARCHAR},
+      </if>
+      <if test="categoryid != null" >
+        CategoryId = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="clicks != null" >
+        Clicks = #{clicks,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.book.pojo.Books" >
+    update Books
+    set Title = #{title,jdbcType=NVARCHAR},
+      Author = #{author,jdbcType=NVARCHAR},
+      PublisherId = #{publisherid,jdbcType=INTEGER},
+      PublishDate = #{publishdate,jdbcType=TIMESTAMP},
+      ISBN = #{isbn,jdbcType=NVARCHAR},
+      UnitPrice = #{unitprice,jdbcType=DECIMAL},
+      ContentDescription = #{contentdescription,jdbcType=NVARCHAR},
+      TOC = #{toc,jdbcType=NVARCHAR},
+      CategoryId = #{categoryid,jdbcType=INTEGER},
+      Clicks = #{clicks,jdbcType=INTEGER}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

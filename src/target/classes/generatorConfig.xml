@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry location="/Users/mac/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/6.1.0.jre8/mssql-jdbc-6.1.0.jre8.jar"/>
+    <context id="context1">
+        <!-- 是否生成注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!-- 数据库连接 -->
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://10.37.129.4:1433;database=BookShopPlus"
+                        userId="sa" password="sasa" />
+
+        <!-- 生成的包名和工程名 -->
+        <javaModelGenerator targetPackage="com.book.entity"
+                            targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="cn.book.mapping"
+                         targetProject="src/main/java" />
+        <javaClientGenerator targetPackage="cn.book.dao"
+                             targetProject="src/main/java" type="XMLMAPPER" />
+
+        <!-- 数据库表 -->
+        <table schema="dbo" tableName="BookRatings"></table>
+        <table schema="dbo" tableName="Books"></table>
+        <table schema="dbo" tableName="Categories"></table>
+        <table schema="dbo" tableName="OrderBook"></table>
+        <table schema="dbo" tableName="Orders"></table>
+        <table schema="dbo" tableName="Publishers"></table>
+        <table schema="dbo" tableName="ReaderComments"></table>
+        <table schema="dbo" tableName="RecomBooks"></table>
+        <table schema="dbo" tableName="SearchKeywords"></table>
+        <table schema="dbo" tableName="sysdiagrams"></table>
+        <table schema="dbo" tableName="TemporaryCart"></table>
+        <table schema="dbo" tableName="UserRoles"></table>
+        <table schema="dbo" tableName="Users"></table>
+        <table schema="dbo" tableName="UserStates"></table>
+    </context>
+</generatorConfiguration>
