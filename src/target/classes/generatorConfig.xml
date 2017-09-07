@@ -15,27 +15,35 @@
                         userId="sa" password="sasa" />
 
         <!-- 生成的包名和工程名 -->
-        <javaModelGenerator targetPackage="com.book.entity"
-                            targetProject="src/main/java"/>
-        <sqlMapGenerator targetPackage="cn.book.mapping"
-                         targetProject="src/main/java" />
-        <javaClientGenerator targetPackage="cn.book.dao"
-                             targetProject="src/main/java" type="XMLMAPPER" />
-
-        <!-- 数据库表 -->
-        <table schema="dbo" tableName="BookRatings"></table>
-        <table schema="dbo" tableName="Books"></table>
-        <table schema="dbo" tableName="Categories"></table>
-        <table schema="dbo" tableName="OrderBook"></table>
-        <table schema="dbo" tableName="Orders"></table>
-        <table schema="dbo" tableName="Publishers"></table>
-        <table schema="dbo" tableName="ReaderComments"></table>
-        <table schema="dbo" tableName="RecomBooks"></table>
-        <table schema="dbo" tableName="SearchKeywords"></table>
-        <table schema="dbo" tableName="sysdiagrams"></table>
-        <table schema="dbo" tableName="TemporaryCart"></table>
-        <table schema="dbo" tableName="UserRoles"></table>
-        <table schema="dbo" tableName="Users"></table>
-        <table schema="dbo" tableName="UserStates"></table>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.book.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="com.book.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.book.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <table tableName="BookRatings" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="Books" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="Categories" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="OrderBook" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="Orders" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="Publishers" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="ReaderComments" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="RecomBooks" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="SearchKeywords" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="sysdiagrams" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="TemporaryCart" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="UserRoles" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="Users" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
+        <table tableName="UsersStates" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table><!-- 数据库表 -->
     </context>
 </generatorConfiguration>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.pojo.OrderbookMapper">
+  <resultMap id="BaseResultMap" type="com.book.pojo.Orderbook">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="OrderID" jdbcType="INTEGER" property="orderid" />
+    <result column="BookID" jdbcType="INTEGER" property="bookid" />
+    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="UnitPrice" jdbcType="DECIMAL" property="unitprice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, OrderID, BookID, Quantity, UnitPrice
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from OrderBook
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from OrderBook
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.book.pojo.Orderbook">
+    insert into OrderBook (Id, OrderID, BookID, 
+      Quantity, UnitPrice)
+    values (#{id,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER}, #{bookid,jdbcType=INTEGER}, 
+      #{quantity,jdbcType=INTEGER}, #{unitprice,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.book.pojo.Orderbook">
+    insert into OrderBook
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="bookid != null">
+        BookID,
+      </if>
+      <if test="quantity != null">
+        Quantity,
+      </if>
+      <if test="unitprice != null">
+        UnitPrice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="unitprice != null">
+        #{unitprice,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.book.pojo.Orderbook">
+    update OrderBook
+    <set>
+      <if test="orderid != null">
+        OrderID = #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        BookID = #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="quantity != null">
+        Quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="unitprice != null">
+        UnitPrice = #{unitprice,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.book.pojo.Orderbook">
+    update OrderBook
+    set OrderID = #{orderid,jdbcType=INTEGER},
+      BookID = #{bookid,jdbcType=INTEGER},
+      Quantity = #{quantity,jdbcType=INTEGER},
+      UnitPrice = #{unitprice,jdbcType=DECIMAL}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

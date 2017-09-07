@@ -61,7 +61,10 @@
   <welcome-file-list>
     <welcome-file>/index.jsp</welcome-file>
   </welcome-file-list>
-
+  <error-page>
+    <error-code>404</error-code>
+    <location>/404.jsp</location>
+  </error-page>
   <!-- session配置 -->
   <session-config>
     <session-timeout>15</session-timeout>

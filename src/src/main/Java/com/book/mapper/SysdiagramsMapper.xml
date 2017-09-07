@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.pojo.SysdiagramsMapper">
+  <resultMap id="BaseResultMap" type="com.book.pojo.Sysdiagrams">
+    <id column="diagram_id" jdbcType="INTEGER" property="diagramId" />
+    <result column="name" jdbcType="NVARCHAR" property="name" />
+    <result column="principal_id" jdbcType="INTEGER" property="principalId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.book.pojo.Sysdiagrams">
+    <result column="definition" jdbcType="VARBINARY" property="definition" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    diagram_id, name, principal_id, version
+  </sql>
+  <sql id="Blob_Column_List">
+    definition
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sysdiagrams
+    where diagram_id = #{diagramId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sysdiagrams
+    where diagram_id = #{diagramId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.book.pojo.Sysdiagrams">
+    insert into sysdiagrams (diagram_id, name, principal_id, 
+      version, definition)
+    values (#{diagramId,jdbcType=INTEGER}, #{name,jdbcType=NVARCHAR}, #{principalId,jdbcType=INTEGER}, 
+      #{version,jdbcType=INTEGER}, #{definition,jdbcType=VARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.book.pojo.Sysdiagrams">
+    insert into sysdiagrams
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="diagramId != null">
+        diagram_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="principalId != null">
+        principal_id,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="definition != null">
+        definition,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="diagramId != null">
+        #{diagramId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="principalId != null">
+        #{principalId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="definition != null">
+        #{definition,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.book.pojo.Sysdiagrams">
+    update sysdiagrams
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="principalId != null">
+        principal_id = #{principalId,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="definition != null">
+        definition = #{definition,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where diagram_id = #{diagramId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.book.pojo.Sysdiagrams">
+    update sysdiagrams
+    set name = #{name,jdbcType=NVARCHAR},
+      principal_id = #{principalId,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      definition = #{definition,jdbcType=VARBINARY}
+    where diagram_id = #{diagramId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.book.pojo.Sysdiagrams">
+    update sysdiagrams
+    set name = #{name,jdbcType=NVARCHAR},
+      principal_id = #{principalId,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER}
+    where diagram_id = #{diagramId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.book.pojo.BookratingsMapper">
+  <resultMap id="BaseResultMap" type="com.book.pojo.Bookratings">
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="BookId" jdbcType="INTEGER" property="bookid" />
+    <result column="UserId" jdbcType="INTEGER" property="userid" />
+    <result column="Rating" jdbcType="INTEGER" property="rating" />
+    <result column="Comment" jdbcType="NVARCHAR" property="comment" />
+    <result column="CreatedTime" jdbcType="TIMESTAMP" property="createdtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, BookId, UserId, Rating, Comment, CreatedTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from BookRatings
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from BookRatings
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.book.pojo.Bookratings">
+    insert into BookRatings (Id, BookId, UserId, 
+      Rating, Comment, CreatedTime
+      )
+    values (#{id,jdbcType=INTEGER}, #{bookid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, 
+      #{rating,jdbcType=INTEGER}, #{comment,jdbcType=NVARCHAR}, #{createdtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.book.pojo.Bookratings">
+    insert into BookRatings
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="bookid != null">
+        BookId,
+      </if>
+      <if test="userid != null">
+        UserId,
+      </if>
+      <if test="rating != null">
+        Rating,
+      </if>
+      <if test="comment != null">
+        Comment,
+      </if>
+      <if test="createdtime != null">
+        CreatedTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bookid != null">
+        #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="rating != null">
+        #{rating,jdbcType=INTEGER},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdtime != null">
+        #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.book.pojo.Bookratings">
+    update BookRatings
+    <set>
+      <if test="bookid != null">
+        BookId = #{bookid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        UserId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="rating != null">
+        Rating = #{rating,jdbcType=INTEGER},
+      </if>
+      <if test="comment != null">
+        Comment = #{comment,jdbcType=NVARCHAR},
+      </if>
+      <if test="createdtime != null">
+        CreatedTime = #{createdtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.book.pojo.Bookratings">
+    update BookRatings
+    set BookId = #{bookid,jdbcType=INTEGER},
+      UserId = #{userid,jdbcType=INTEGER},
+      Rating = #{rating,jdbcType=INTEGER},
+      Comment = #{comment,jdbcType=NVARCHAR},
+      CreatedTime = #{createdtime,jdbcType=TIMESTAMP}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

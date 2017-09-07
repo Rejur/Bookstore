@@ -1,0 +1,471 @@
+ul,li,a,div,span,html, body,h2{
+    margin: 0;
+    padding: 0;
+}
+body {
+    line-height: 1;
+    min-width: 1024px;
+
+}
+ul, ol, li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul{
+    display: inline;
+}
+.clear{
+    clear: both;
+    height: 0;
+}
+
+.hide{
+    display: none;
+}
+
+.head{
+    height: 75px;
+}
+
+/*顶部背景*/
+.stripes .stripe {
+    position: absolute;
+    height: 190px;
+    /*will-change: transform;*/
+}
+.stripes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: skewY(-12deg);
+    z-index: -1;
+}
+
+@media (min-width: 670px) {
+    .stripes {
+        bottom: 290px;
+    }
+}
+@media (min-width: 880px) {
+    .stripes {
+        bottom: 470px;
+    }
+}
+
+.stripes .s4 {
+    height: 191px;
+    bottom: -189px;
+    left: 0;
+    right: 60%;
+    min-width: 0;
+    background: linear-gradient(90deg,#f783c3,#f399ff);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f783c3', endColorstr='#f399ff',GradientType=0 );
+}
+@media (min-width: 880px){
+    .stripes .s4 {
+        right: calc(50% + 90px);
+        min-width: 430px;
+    }}
+
+.stripes .s5 {
+    height: 191px;
+    bottom: -189px;
+    right: 0;
+    width: 26%;
+    background: linear-gradient(90deg,#fff, #e7e7f1);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#e7e7f1',GradientType=0 );
+    /*background: yellowgreen;*/
+}
+.stripes .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,#895cf2,#ffabf4);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#895cf2', endColorstr='#ffabf4',GradientType=0 );
+}
+.stripes .s1 {
+    bottom: 380px;
+    left: 16%;
+    width: 41%;
+    background: linear-gradient(90deg,rgba(67,67,141,.05),rgba(67,67,141,.1));
+
+}
+.stripes .s2 {
+    bottom: 0;
+    left: 0;
+    width: 27%;
+    background: linear-gradient(90deg,#c76eff,#b778ff);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c76eff', endColorstr='#b778ff',GradientType=0 );
+}
+.stripes .s3 {
+    bottom: 0;
+    right: 0;
+    width: 30%;
+    background: -webkit-linear-gradient(left,#f4a3ea,#ffbe8a);
+    background: linear-gradient(90deg,#f4a3ea,#ffbe8a);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4a3ea', endColorstr='#ffbe8a',GradientType=0 );
+}
+
+
+.nav {
+    font-family: "微软雅黑","华文细黑";
+    height: 57px;
+    padding: 8px 70px;
+    color: #FFFFFF;
+    width: 1184px;
+    margin: 0 auto;
+    position: fixed;
+    top: -100px;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease;
+    background: linear-gradient(30deg, rgba(81, 98, 209, 0) 35%, rgba(58, 125, 184, 0) 65%);
+    z-index: 10;
+}
+.navbag{
+    border-radius: 20px;
+    background: linear-gradient(30deg, rgba(81, 98, 209, 0.64) 35%, rgba(58, 125, 184, 0.65) 65%);
+    transition: all 0.3s ease;
+
+}
+.nav>span{
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 180px;
+    cursor: default;
+}
+.nav ul{
+    display: inline-block;
+}
+.nav ul li{
+    float: left;
+    margin-right: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+.letter_le{
+    letter-spacing: 1em;
+}
+.nav ul li:nth-of-type(4){
+    margin-left: 80px;
+}
+.nav ul li:hover{
+    opacity: 0.9;
+    transform: scale(1.1,1.1);
+    transition: all 0.3s;
+}
+.on{
+    top: 10px;
+    transition: all 0.3s ease;
+}
+
+.select{
+    position: relative;
+}
+.select i{
+    position: absolute;
+    top: 4px;
+    left: 68px;
+    width: 20px;
+    height: 3px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    transition: all 0.2s ease-out;
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+}
+.select i:after{
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    transition: all 0.2s ease-out;
+}
+.select i:before{
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    top: 12px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    transition: all 0.2s ease-out;
+}
+/*变幻为三角形*/
+.select:hover i{
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    width: 20px;
+    height: 3px;
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+}
+.select:hover i:after{
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: 6px;
+    top: 8px;
+    transform: rotate(-60deg);
+    transition: all 0.2s ease;
+}
+.select:hover i:before{
+    content: "";
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    left: -4px;
+    top: 9px;
+    transform: rotate(240deg);
+    transition: all 0.2s ease;
+}
+
+@charset "UTF-8";
+.fr{
+    float: right;
+}
+.section>div{
+    float: left;
+    margin-bottom: 7px;
+}
+
+.content{
+    width: 1024px;
+    margin: 0 auto;
+}
+/*首栏*/
+.dynamic{
+    width: 100%;
+    height: 340px;
+    /*  border: 1px solid #ccc;
+      background-color: #fffff0;*/
+}
+
+.dynamic>div{
+    float: left;
+}
+/*3d轮播图*/
+.big_box{
+    width: 100%;
+    height: 100%;
+    transform-style:preserve-3d;  /*父元素设置了 transform-style:preserve-3d 后，就可以对子元素进行 3D 变形操作了*/
+    padding-top: 5%;
+    margin-left: 0;
+    position: relative;
+    transform: rotateX(1deg) rotateY(1deg) translate3D(0px,0px,0px);
+    transition: all 1s ease;
+}
+.box{
+    width: 380px;
+    height: 260px;
+    left: 34%;
+    background: rgba(92, 184, 92, 0.73);
+}
+
+.color1{
+    position: absolute;
+    transform: rotateX(0deg) rotateY(60deg) translate3D(0px,0px,400px) scale(0.9);
+    opacity: 0.5;
+}
+.color2{
+    background: rgba(72, 143, 205, 0.69);
+    position: absolute;
+    transform: rotateX(0deg) rotateY(120deg) rotateZ(0deg) translate3D(0px,0px,400px) scale(0.9);
+    opacity: 0.5;
+}
+.color3{
+    background: rgba(247, 175, 93, 0.73);
+    position: absolute;
+    transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg) translate3D(0px,0px,400px) scale(0.9);
+    opacity: 0.5;
+}
+.color4{
+    background: rgba(255, 204, 247, 0.73);
+    position: absolute;
+    transform: rotateX(0deg) rotateY(240deg) rotateZ(0deg) translate3D(0px,0px,400px) scale(0.9);
+    opacity: 0.5;
+}
+.color5{
+    background: rgba(255, 77, 87, 0.76);
+    position: absolute;
+    transform: rotateX(0deg) rotateY(300deg)  rotateZ(0deg) translate3D(0px,0px,400px) scale(0.9);
+    opacity: 0.5;
+}
+.color6{
+    background: rgba(233, 42, 131, 0.72);
+    position: absolute;
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translate3D(0px,0px,400px) scale(0.9);
+    opacity: 1;
+
+}
+@keyframes myfirst
+{
+    0%   {transform: rotateX(0deg) rotateY(0deg);}
+    100% {transform: rotateX(-233.5deg) rotateY(245deg);}
+}
+.img_text{
+    position: relative;
+    top: 300px;
+    text-align: center;
+}
+.img_text span{
+    color: #43458b;
+    font-size: 1em;
+    display: none;
+}
+.img_text span:nth-child(1){
+    display: block;
+}
+
+.cont_box{
+    height: 200px;
+    width: 500px;
+}
+/*介绍方块*/
+.title_mess{
+    width: 1024px;
+    /*height: 600px;*/
+    height: 485px;
+    background-color: transparent;
+    border-radius: 30px;
+    /*box-shadow: 1px 1px 10px #a5a5a5;*/
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 20px;
+    position: relative;
+}
+.top_mess{
+    /*color: #f57907;*/
+    color: #FFFFFF;
+    font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+    font-size: 35px;
+    line-height: 50px;
+}
+.title_mess p{
+    margin: 0;
+}
+.drawline{
+    margin-top: 10px;
+    width: 180px;
+    border: 2px solid #fefdff;
+    border-radius: 5px;
+}
+.next_mess{
+    color: #f9e7ff;
+    font-family: "微软雅黑", "楷体", "华文细黑";
+    font-size: 29px;
+    line-height: 47px;
+    margin-top: 10px;
+}
+.add_butt{
+    cursor: pointer;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 14px;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+    background: #fff;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .025em;
+    color: #6772e5;
+    text-decoration: none;
+    transition: all .15s ease;
+    margin-top: 15px;
+    font-family: 黑体;
+}
+.add_butt:hover{
+    color: #7795f8;
+    transform: translateY(-1px);
+    box-shadow: 0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08);
+}
+.favorites{
+    color: #fff;
+    background: #43458b;
+    margin-right: 10px;
+}
+.favorites:hover{
+    color: #fff;
+    background: #555abf;
+}
+
+/*日历*/
+html {
+    font: 500 14px 'roboto';
+    color: #333;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#demo {
+    width: 300px;
+    float: right;
+}
+
+
+/*回到顶部*/
+.top{
+    color: whitesmoke;
+    background: #3a7db8;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 60px;
+    right: 40px;
+    display: none;
+}
+.top:hover{
+    background: #4cae4c;
+}
+
+/*顶部自动图*/
+.changbox {
+    width: 602px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: -390px;
+    left: 250px;
+    overflow: hidden;
+}
+.choose_i{
+    width: 50px !important;
+    transition: all 0.4s;
+}
+.i_box{
+    position: relative;
+    top: 460px;
+    left: 267px;
+    opacity: 0;
+    transition: all 0.4s;
+}
+.changbox:hover .i_box{
+    opacity: 1;
+    transition: all 0.4s;
+}
+.i_box i{
+    display: inline-block;
+    margin: 0 6px;
+    width: 20px;
+    height: 5px;
+    border-radius: 5px;
+    background: rgba(67, 69, 139, 0.76);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.i_box i:hover{
+    background: rgb(67, 69, 139);
+}
+
