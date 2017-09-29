@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.OrderbookMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.model.Orderbook">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="OrderID" jdbcType="INTEGER" property="orderid" />
+    <result column="BookID" jdbcType="INTEGER" property="bookid" />
+    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="UnitPrice" jdbcType="DECIMAL" property="unitprice" />
+  </resultMap>
+  <insert id="insertnoid" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.model.Orderbook" >
+    insert into OrderBook (OrderID, BookId,
+    Quantity, UnitPrice)
+    values (#{orderid,jdbcType=INTEGER}, #{bookid,jdbcType=INTEGER},
+    #{quantity,jdbcType=INTEGER}, #{unitprice, jdbcType=DECIMAL} )
+  </insert>
+</mapper>

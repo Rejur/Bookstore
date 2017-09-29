@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.model.Users">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="LoginId" jdbcType="NVARCHAR" property="loginid" />
+    <result column="LoginPwd" jdbcType="NVARCHAR" property="loginpwd" />
+    <result column="Name" jdbcType="NVARCHAR" property="name" />
+    <result column="Address" jdbcType="NVARCHAR" property="address" />
+    <result column="Phone" jdbcType="NVARCHAR" property="phone" />
+    <result column="Mail" jdbcType="NVARCHAR" property="mail" />
+    <result column="Birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="UserRoleId" jdbcType="INTEGER" property="userroleid" />
+    <result column="UserStateId" jdbcType="INTEGER" property="userstateid" />
+    <result column="RegisterIp" jdbcType="NVARCHAR" property="registerip" />
+    <result column="RegisterTime" jdbcType="TIMESTAMP" property="registertime" />
+  </resultMap>
+  <insert id="insertnoid" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.model.Users" >
+    insert into Users (LoginId, LoginPwd,
+    Name, Address, Phone, Mail, Birthday, UserRoleId, UserStateId, RegisterIp, RegisterTime
+    )
+    values (#{loginid,jdbcType=NVARCHAR}, #{loginpwd,jdbcType=NVARCHAR},
+    #{name,jdbcType=NVARCHAR}, #{address,jdbcType=NVARCHAR}, #{phone,jdbcType=NVARCHAR},#{mail,jdbcType=NVARCHAR}, #{birthday, jdbcType=TIMESTAMP},
+      #{userroleid, jdbcType=INTEGER}, #{userstateid, jdbcType=INTEGER}, #{registerip, jdbcType=NVARCHAR}, #{registertime, jdbcType=TIMESTAMP}
+    )
+  </insert>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.BookratingsMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.model.Bookratings">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="BookId" jdbcType="INTEGER" property="bookid" />
+    <result column="UserId" jdbcType="INTEGER" property="userid" />
+    <result column="Rating" jdbcType="INTEGER" property="rating" />
+    <result column="Comment" jdbcType="NVARCHAR" property="comment" />
+    <result column="CreatedTime" jdbcType="TIMESTAMP" property="createdtime" />
+  </resultMap>
+</mapper>

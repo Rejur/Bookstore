@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.mapper.BooksMapper">
+  <resultMap id="BaseResultMap" type="com.ssm.model.Books">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="Id" jdbcType="INTEGER" property="id" />
+    <result column="Title" jdbcType="NVARCHAR" property="title" />
+    <result column="Author" jdbcType="NVARCHAR" property="author" />
+    <result column="PublisherId" jdbcType="INTEGER" property="publisherid" />
+    <result column="PublishDate" jdbcType="TIMESTAMP" property="publishdate" />
+    <result column="ISBN" jdbcType="NVARCHAR" property="isbn" />
+    <result column="UnitPrice" jdbcType="DECIMAL" property="unitprice" />
+    <result column="ContentDescription" jdbcType="NVARCHAR" property="contentdescription" />
+    <result column="TOC" jdbcType="NVARCHAR" property="toc" />
+    <result column="CategoryId" jdbcType="INTEGER" property="categoryid" />
+    <result column="Clicks" jdbcType="INTEGER" property="clicks" />
+  </resultMap>
+  <insert id="insertnoid" useGeneratedKeys="true" keyProperty="id" parameterType="com.ssm.model.Books" >
+    insert into Books (Title, Author, PublisherId, PublishDate, ISBN, UnitPrice, ContentDescription, TOC,
+    CategoryId, Clicks)
+    values (#{title,jdbcType=NVARCHAR}, #{author,jdbcType=NVARCHAR}, #{publisherid, jdbcType=INTEGER}, #{publishdate, jdbcType=TIMESTAMP}
+    ,#{isbn, jdbcType=NVARCHAR}, #{unitprice, jdbcType=DECIMAL}, #{contentdescription, jdbcType=NVARCHAR}, #{toc, jdbcType=NVARCHAR},
+    #{categoryid, jdbcType=INTEGER}, #{clicks, jdbcType=INTEGER})
+  </insert>
+</mapper>
